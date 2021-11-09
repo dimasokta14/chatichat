@@ -1,0 +1,33 @@
+@import "../../Themes/colors.scss";
+
+.sticky_pos {
+	position: sticky;
+	top: 10px;
+	background-color: white;
+	z-index: 99;
+}
+.tab {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	text-align: center;
+	align-items: center;
+	min-height: 50px;
+	box-shadow: 0 4px 2px -2px #e5e5e5;
+}
+li.tab-item {
+	display: inherit;
+	// padding-left: 2.4rem;
+	cursor: pointer;
+	color: #e0e0e0;
+	font-weight: 700;
+	font-size: 15px;
+	height: 100%;
+	align-items: center;
+	&.active {
+		color: $grey;
+		border-bottom: solid 1.5px $grey;
+	}
+	&:first-of-type {
+		padding-left: 0px;
+	}
+}

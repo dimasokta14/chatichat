@@ -1,0 +1,93 @@
+@import "./fonts.scss";
+@import "./colors.scss";
+
+*,
+:after,
+:before {
+	box-sizing: inherit;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	font-feature-settings: "calt";
+	background-color: #fff;
+	color: $grey;
+	font-family: "Nunito-Sans";
+	font-size: 16px;
+	font-weight: 400;
+	height: 100%;
+	letter-spacing: -0.01em;
+	line-height: 21px;
+	margin: 0;
+}
+.height-100 {
+	height: 100% !important;
+}
+
+.flex {
+	display: flex !important;
+}
+.flex-column {
+	flex-direction: column !important;
+}
+.items-center {
+	align-items: center !important;
+}
+
+header {
+	display: block;
+}
+.global_gutter {
+	padding: 0 1.6rem;
+}
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.fade-enter {
+	opacity: 0;
+}
+.fade-exit {
+	opacity: 1;
+}
+.fade-enter-active {
+	opacity: 1;
+}
+.fade-exit-active {
+	opacity: 0;
+}
+.fade-enter-active,
+.fade-exit-active {
+	transition: opacity 500ms;
+}
+
+//old page exiting, hides it underneath (bottom)
+.pageSlider-exit > .page {
+	z-index: 1;
+}
+//new page entering, show it on top
+.pageSlider-enter > .page {
+	z-index: 10;
+}
+//LEFT transition transform 100% to the right
+.pageSlider-enter.left > .page {
+	transform: translate3d(100%, 0, 0);
+}
+//RIGHT transition transform -100% to the left
+.pageSlider-enter.right > .page {
+	transform: translate3d(-100%, 0, 0);
+}
+//old exit left direction
+.pageSlider-exit.left > .page {
+	transform: translate3d(-100%, 0, 0);
+}
+//old exit right direction
+.pageSlider-exit.right > .page {
+	transform: translate3d(100%, 0, 0);
+}
+.pageSlider-enter.pageSlider-enter-active > .page {
+	transform: translate3d(0, 0, 0);
+	transition: all 800ms ease-in-out;
+}

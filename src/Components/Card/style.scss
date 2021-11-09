@@ -1,0 +1,135 @@
+@import "../../Themes/colors.scss";
+$message-status: (
+	"read": url("../../Assets/icons/check.svg"),
+	"unread": url("../../Assets/icons/check_purple.svg"),
+);
+
+.card {
+	width: 100%;
+	min-height: 80px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: solid 1px #e0e0e0;
+	&__content {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		height: 72px;
+		pointer-events: all;
+		& .avatar_wrapper {
+			display: flex;
+			align-items: center;
+			padding-left: 10px;
+			padding-right: 10px;
+			& .border {
+				height: 50px;
+				width: 50px;
+				position: relative;
+				background-color: rgba(234, 234, 234, 0.7);
+				border-radius: 50%;
+				& img {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 100%;
+					height: 100%;
+					border-radius: 50%;
+				}
+			}
+		}
+		& .text-wrapper {
+			display: flex;
+			flex-basis: auto;
+			flex-direction: column;
+			flex-grow: 1;
+			justify-content: center;
+			min-width: 0;
+			& .primary {
+				display: flex;
+				align-items: center;
+				line-height: normal;
+				& .title {
+					display: flex;
+					flex-grow: 1;
+					overflow: hidden;
+					font-size: 16px;
+					font-weight: 800;
+					line-height: 21px;
+					color: $grey;
+					& span {
+						position: relative;
+						flex-grow: 1;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+					}
+				}
+				& .dot_notif {
+					flex: none;
+					max-width: 100%;
+					& span {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						min-width: 20px;
+						min-height: 20px;
+						font-size: 12px;
+						font-weight: 600;
+						line-height: 1em;
+						color: white;
+						background-color: $primary;
+						vertical-align: top;
+						border-radius: 4px;
+					}
+				}
+			}
+			& .secondary {
+				display: flex;
+				align-items: center;
+				min-height: 20px;
+				& .message {
+					flex-grow: 1;
+					overflow: hidden;
+					font-size: 14px;
+					font-weight: 600;
+					line-height: 20px;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					margin-top: 5px;
+					& span {
+						display: flex;
+						align-items: flex-start;
+						@each $status, $icon in $message-status {
+							& .icon_check-#{$status} {
+								width: 15px;
+								height: 10px;
+								background: {
+									image: $icon;
+									repeat: no-repeat;
+									position: center;
+									size: 10px 10px;
+								}
+							}
+						}
+						& .text {
+							position: relative;
+							flex-grow: 1;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+							color: #8b8b8b;
+							&.active {
+								color: $grey;
+							}
+						}
+						& .time {
+							font-size: 14px;
+							line-height: 16px;
+							font-weight: 700;
+						}
+					}
+				}
+			}
+		}
+	}
+}
