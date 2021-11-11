@@ -1,0 +1,26 @@
+@import "../../Themes/colors.scss";
+$bubble-colors: "in" #f8f9fb $grey (10px 10px 10px 2.5px),
+	"out" $primary white (10px 2.5px 10px 10px);
+
+.bubble-wrapper {
+	position: relative;
+	flex: none;
+	font-size: 14.2px;
+	line-height: 19px;
+	display: flex;
+	@each $type, $background, $color, $radius in $bubble-colors {
+		.message-#{$type} {
+			max-width: 60%;
+			padding: 2% 5%;
+			color: $color;
+			background-color: $background;
+			border-radius: $radius;
+			// &:first-child {
+			// 	border-radius: 10px 10px 10px 2.5px;
+			// }
+			// &:last-child {
+			// 	border-radius: 2.5px 10px 10px 10px;
+			// }
+		}
+	}
+}

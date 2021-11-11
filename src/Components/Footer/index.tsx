@@ -6,23 +6,6 @@ interface Props {}
 const Footer: React.FC<Props> = () => {
 	return (
 		<footer className="footer">
-			{/* <div className="wrapper_footer">
-				<div className="wrapper_footer__content">
-					<div className="flex_items">
-						<div className="button_attach icon_wrapper">
-							<button>
-								<img src={Icons.plus} />
-							</button>
-						</div>
-						<div className="field_input">
-							<input placeholder="type message" />
-							<div>
-								<button>send</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> */}
 			<div className="footer-wrapper">
 				<div>
 					<button className="footer-add-button">
