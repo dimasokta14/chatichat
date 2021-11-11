@@ -2,8 +2,49 @@
 	position: sticky;
 	bottom: 0;
 	width: 100%;
-	height: 60px;
+	overflow: hidden;
+	// height: 100%;
 	background-color: white;
+}
+.attachment-wrapper {
+	// height: 0px;
+	grid-template-columns: auto auto auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-top: 1px solid #f2f2f2;
+	display: grid;
+	transition: all 1s linear;
+	height: 120px;
+	animation: slide 1s ease 3.5ms 1 forwards;
+	// transform: scale3d(0, 0, 0);
+	// transform: translateY(0);
+	&.open {
+		display: grid;
+	}
+	&.close {
+		display: none;
+	}
+	&__box-button {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		span.btn-name {
+			color: #6c6c6c;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 17px;
+			text-align: center;
+		}
+	}
+	@keyframes slide {
+		from {
+			height: 0;
+		}
+		to {
+			height: 120px;
+		}
+	}
 }
 .footer-wrapper {
 	display: grid;
@@ -13,7 +54,7 @@
 	align-items: center;
 	text-align: center;
 	padding: 10px 15px;
-	border-top: 1px solid #eaeaee;
+	border-top: 1px solid #f2f2f2;
 }
 .footer-add-button {
 	min-height: 25px;
@@ -26,6 +67,14 @@
 	border: none;
 	padding: 7px;
 	text-align: center;
+	.rotate-in {
+		transform: rotate(45deg);
+		transition: transform 100ms ease-in-out;
+	}
+	.rotate-out {
+		transform: rotate(0deg);
+		transition: transform 100ms ease-in-out;
+	}
 }
 .send-button {
 	background-color: white;

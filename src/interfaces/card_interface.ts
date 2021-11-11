@@ -1,6 +1,7 @@
 export type cardListType = {
 	type: "chat" | "group" | "class" | "contact";
 	data: {
+		id?: string;
 		title: string;
 		content?: string;
 		time?: Date;
@@ -12,6 +13,7 @@ export type cardListType = {
 export const card_lists_init: cardListType = {
 	type: "chat",
 	data: {
+		id: "",
 		title: "",
 		content: "",
 		time: new Date(),

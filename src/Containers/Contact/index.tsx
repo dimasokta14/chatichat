@@ -1,7 +1,13 @@
 import React from "react";
+import ContactList from "../../Components/ContactLists";
+import { ContactProvider } from "../../Contexts/ContactContext";
 
 const Contact: React.FC = () => {
-	return <div>contact</div>;
+	return (
+		<ContactProvider>
+			<ContactList />
+		</ContactProvider>
+	);
 };
 
 export default Contact;

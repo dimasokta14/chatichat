@@ -26,6 +26,27 @@ body {
 	scroll-behavior: smooth;
 	// width: 100%;
 }
+main {
+	overflow: auto;
+	background: linear-gradient(white 30%, rgba(255, 255, 255, 0)),
+		linear-gradient(rgba(255, 255, 255, 0), white 70%) 0 100%,
+		/* Shadows */
+			radial-gradient(
+				farthest-side at 50% 0,
+				rgba(0, 0, 0, 0.2),
+				rgba(0, 0, 0, 0)
+			),
+		radial-gradient(
+				farthest-side at 50% 100%,
+				rgba(0, 0, 0, 0.2),
+				rgba(0, 0, 0, 0)
+			)
+			0 100%;
+	background-repeat: no-repeat;
+	background-color: white;
+	background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+	background-attachment: local, local, scroll, scroll;
+}
 
 *,
 ::after,
@@ -142,9 +163,22 @@ ul {
 span {
 	font-family: "Roboto";
 	font-size: 14px !important;
-	font-weight: 400 !important;
-	line-height: 16px;
-	color: #8b8b8b !important;
+	// font-weight: 400 !important;
+	// line-height: 16px;
+	// color: #8b8b8b !important;
+}
+
+.btn-rounded {
+	min-height: 50px;
+	min-width: 50px;
+	background-color: #e0e6ff;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	padding: 7px;
+	text-align: center;
 }
 
 // @media (prefers-reduced-motion: no-preference){
