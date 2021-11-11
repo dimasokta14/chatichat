@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router";
 import { HomeContext } from "../../Contexts/HomeContext";
 import "./style.scss";
 interface Props {}

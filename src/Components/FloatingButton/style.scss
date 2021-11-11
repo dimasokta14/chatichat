@@ -3,16 +3,17 @@
 .wrapper {
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	position: fixed;
-	right: 5vw;
-	bottom: 5vh;
+	justify-content: flex-end;
+	position: sticky;
+	margin-right: 25px;
+	bottom: 25px;
+	// right: 25px;
 }
 
 .btn_rounded {
 	border-radius: 50%;
 	min-height: 60px;
-	min-width: 50px;
+	min-width: 60px;
 	background-color: $primary;
 	border: none;
 	text-align: center;

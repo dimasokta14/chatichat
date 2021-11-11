@@ -1,6 +1,12 @@
-.header_global {
+header.header_global {
 	position: relative;
 	z-index: 2;
+	&.stick {
+		position: sticky !important;
+		top: 0px;
+		background-color: white;
+		z-index: 99;
+	}
 }
 
 .header_navigator {

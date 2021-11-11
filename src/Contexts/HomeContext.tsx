@@ -7,6 +7,7 @@ interface HomeContextNode {
 	setCurrentTab: Function;
 	selected_tab: number;
 	setSelectedTab: Function;
+	swipe_direction: "left" | "right";
 
 	card_lists_data: cardListType[];
 }
@@ -16,15 +17,21 @@ interface Props {}
 const HomeProvider: React.FC<Props> = ({ children }) => {
 	// TAB START
 	const [current_tab, setCurrentTab] = useState<string>("Chat");
+	const [swipe_direction, setSwipeDirection] = useState<"left" | "right">(
+		"left"
+	);
 	const tab_menus = ["Chat", "Group", "Class"];
 
 	const [selected_tab, setSelectedTab] = useState(0);
 	const setActiveTab = () => {
-		tab_menus.map(
-			(tab_menu, key) => current_tab === tab_menu && setSelectedTab(key)
-		);
+		let active_index = 0;
+		tab_menus.map((tab_menu, key) => {
+			if (current_tab === tab_menu) active_index = key;
+		});
+		setSwipeDirection(selected_tab < active_index ? "left" : "right");
+		setSelectedTab(active_index);
 	};
-	useEffect(setActiveTab);
+	useEffect(setActiveTab, [current_tab]);
 	// TAB END
 
 	const [card_lists_data, setCardListsData] = useState<cardListType[]>([
@@ -54,6 +61,7 @@ const HomeProvider: React.FC<Props> = ({ children }) => {
 				tab_menus,
 				selected_tab,
 				setSelectedTab,
+				swipe_direction,
 
 				current_tab,
 				setCurrentTab,
@@ -88,6 +96,116 @@ const dummy_tab_chat_data: cardListType[] = [
 				"https://avatars.dicebear.com/v2/female/4e95d46ed8448243b661e8baf9329b8e.svg",
 		},
 	},
+	{
+		type: "chat",
+		data: {
+			title: "Pak Ogah Ah",
+			content: "Wis mangan urung",
+			time: new Date(),
+			unread_count: 12,
+			picture:
+				"https://avatars.dicebear.com/v2/female/8d748f4944f1e100be1776df4f8869cf.svg",
+		},
+	},
+	{
+		type: "chat",
+		data: {
+			title: "Pak Kuy Ah",
+			content: "Naon sia? Chat aing ulah di baca",
+			time: new Date(),
+			unread_count: 15,
+			picture:
+				"https://avatars.dicebear.com/v2/female/4e95d46ed8448243b661e8baf9329b8e.svg",
+		},
+	},
+	{
+		type: "chat",
+		data: {
+			title: "Pak Ogah Ah",
+			content: "Wis mangan urung",
+			time: new Date(),
+			unread_count: 12,
+			picture:
+				"https://avatars.dicebear.com/v2/female/8d748f4944f1e100be1776df4f8869cf.svg",
+		},
+	},
+	{
+		type: "chat",
+		data: {
+			title: "Pak Kuy Ah",
+			content: "Naon sia? Chat aing ulah di baca",
+			time: new Date(),
+			unread_count: 15,
+			picture:
+				"https://avatars.dicebear.com/v2/female/4e95d46ed8448243b661e8baf9329b8e.svg",
+		},
+	},
+	{
+		type: "chat",
+		data: {
+			title: "Pak Ogah Ah",
+			content: "Wis mangan urung",
+			time: new Date(),
+			unread_count: 12,
+			picture:
+				"https://avatars.dicebear.com/v2/female/8d748f4944f1e100be1776df4f8869cf.svg",
+		},
+	},
+	{
+		type: "chat",
+		data: {
+			title: "Pak Kuy Ah",
+			content: "Naon sia? Chat aing ulah di baca",
+			time: new Date(),
+			unread_count: 15,
+			picture:
+				"https://avatars.dicebear.com/v2/female/4e95d46ed8448243b661e8baf9329b8e.svg",
+		},
+	},
+	{
+		type: "chat",
+		data: {
+			title: "Pak Ogah Ah",
+			content: "Wis mangan urung",
+			time: new Date(),
+			unread_count: 12,
+			picture:
+				"https://avatars.dicebear.com/v2/female/8d748f4944f1e100be1776df4f8869cf.svg",
+		},
+	},
+	{
+		type: "chat",
+		data: {
+			title: "Pak Kuy Ah",
+			content: "Naon sia? Chat aing ulah di baca",
+			time: new Date(),
+			unread_count: 15,
+			picture:
+				"https://avatars.dicebear.com/v2/female/4e95d46ed8448243b661e8baf9329b8e.svg",
+		},
+	},
+	{
+		type: "chat",
+		data: {
+			title: "Pak Ogah Ah",
+			content: "Wis mangan urung",
+			time: new Date(),
+			unread_count: 12,
+			picture:
+				"https://avatars.dicebear.com/v2/female/8d748f4944f1e100be1776df4f8869cf.svg",
+		},
+	},
+	{
+		type: "chat",
+		data: {
+			title: "Pak Kuy Ah",
+			content: "Naon sia? Chat aing ulah di baca",
+			time: new Date(),
+			unread_count: 15,
+			picture:
+				"https://avatars.dicebear.com/v2/female/4e95d46ed8448243b661e8baf9329b8e.svg",
+		},
+	},
 ];
 
 const dummy_tab_group_data: cardListType[] = [
@@ -97,7 +215,7 @@ const dummy_tab_group_data: cardListType[] = [
 			title: "Paskamling(10)",
 			content: "Wis mangan urung",
 			time: new Date(),
-			unread_count: 12,
+			unread_count: 8,
 		},
 	},
 	{
@@ -106,7 +224,7 @@ const dummy_tab_group_data: cardListType[] = [
 			title: "Paskibul(20)",
 			content: "Naon sia? Chat aing ulah di baca",
 			time: new Date(),
-			unread_count: 15,
+			unread_count: 5,
 		},
 	},
 ];
@@ -118,7 +236,7 @@ const dummy_tab_class_data: cardListType[] = [
 			title: "Kelas Memasak Cupang",
 			content: "Wis mangan urung",
 			time: new Date(),
-			unread_count: 12,
+			unread_count: 1,
 		},
 	},
 	{
@@ -127,7 +245,7 @@ const dummy_tab_class_data: cardListType[] = [
 			title: "Kelas praktikum bahasa jawa",
 			content: "Naon sia? Chat aing ulah di baca",
 			time: new Date(),
-			unread_count: 15,
+			unread_count: 5,
 		},
 	},
 ];

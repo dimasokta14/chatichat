@@ -1,0 +1,7 @@
+{
+	"hosting": {
+		"public": "build",
+		"site": "web-view-chat-17",
+		"ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+	}
+}

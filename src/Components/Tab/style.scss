@@ -2,7 +2,7 @@
 
 .sticky_pos {
 	position: sticky;
-	top: 10px;
+	top: 0px;
 	background-color: white;
 	z-index: 99;
 }
@@ -29,5 +29,8 @@ li.tab-item {
 	}
 	&:first-of-type {
 		padding-left: 0px;
+	}
+	&:hover {
+		background: none;
 	}
 }
